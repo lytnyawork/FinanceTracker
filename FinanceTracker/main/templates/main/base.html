@@ -1,0 +1,20 @@
+{% load static %}
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link type="text/css" href="{% static 'main/css/style.css' %}" rel='stylesheet'>
+    <link type="text/css" href="{% static 'main/boot/css/bootstrap.min.css' %}" rel='stylesheet'>
+</head>
+<body>
+
+    {% include "main/include/header.html" %}
+
+    {% block content %}{% endblock %}
+
+
+    <script src="{% static "main/boot/js/bootstrap.bundle.min.js" %}"></script>
+</body>
+</html>
