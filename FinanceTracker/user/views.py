@@ -16,9 +16,12 @@ from user.forms import LoginUserForm, RegisterUserForm
 class LoginUserView(LoginView):
     form_class = LoginUserForm
     template_name = "user/login.html"
+    
 
     def form_valid(self, form):
         remember_me = form.cleaned_data.get("remember_me")
+
+        
 
         if not remember_me:
             self.request.session.set_expiry(0)
@@ -40,6 +43,7 @@ class CreateUserView(CreateView):
     
 
 
-def logout_user(request):
+def logout_user(request) -> HttpResponseRedirect:
+    print(request.method)
     logout(request)
     return HttpResponseRedirect(reverse("home"))
