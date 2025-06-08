@@ -31,9 +31,7 @@ class RegisterUserForm(UserCreationForm):
     username.widget.attrs.update({"class": "form-control", "placeholder": "Логин"})
     email.widget.attrs.update({"class": "form-control", "placeholder": "Email"})
     password1.widget.attrs.update({"class": "form-control", "placeholder": "Пароль"})
-    password2.widget.attrs.update(
-        {"class": "form-control", "placeholder": "Повторение пароля"}
-    )
+    password2.widget.attrs.update({"class": "form-control", "placeholder": "Повторение пароля"})
 
     def clean_email(self):
         email = self.cleaned_data.get("email")

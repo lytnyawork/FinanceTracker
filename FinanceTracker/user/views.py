@@ -32,13 +32,13 @@ class LoginUserView(LoginView):
 class CreateUserView(CreateView):
     form_class= RegisterUserForm
     template_name = "user/register.html"
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('users:login')
 
     def form_valid(self, form):
         
         user = form.save()
         login(self.request, user)
-        return redirect('home')
+        return redirect('step')
 
     
 
@@ -46,4 +46,4 @@ class CreateUserView(CreateView):
 def logout_user(request) -> HttpResponseRedirect:
     print(request.method)
     logout(request)
-    return HttpResponseRedirect(reverse("home"))
+    return HttpResponseRedirect(reverse("users:login"))
